@@ -8,7 +8,7 @@ function App() {
   const [name, setName] = React.useState("");
   return (
     <div className="App">
-      <Context.Provider value={{ name: name, setName: setName }}>
+      <Context.Provider value={{ name, setName }}>
         <Wrapper>
           <Navbar />
           <FormWrapper />
