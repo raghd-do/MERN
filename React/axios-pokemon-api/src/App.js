@@ -1,9 +1,8 @@
 import React from "react";
-import axios from "axios";
 import "./App.css";
 
 function App() {
-  const [pokeList, setPokeList] = React.useState(null);
+  const [pokeList, setPokeList] = React.useState([]);
   const [isClicked, setIsClicked] = React.useState(false);
 
   const fetchPokemons = () => {
@@ -12,12 +11,12 @@ function App() {
 
   React.useEffect(() => {
     if (isClicked) {
-      axios
-        .get("https://pokeapi.co/api/v2/pokemon?limit=807&offset=0")
+      fetch("https://pokeapi.co/api/v2/pokemon?limit=807&offset=0")
         .then((res) => res.json())
         .then((res) => setPokeList(res.results));
       setIsClicked(false);
     }
+    console.log("");
   }, [isClicked]);
 
   return (
