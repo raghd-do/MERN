@@ -8,8 +8,8 @@ app.use(express.json(), express.urlencoded({ extended: true }), cors());
 // DB fire
 require("./server/config/mongoose.config");
 
-const x = require("./server/routes/X.routes");
-x(app);
+const product = require("./server/routes/product.routes");
+product(app);
 
 // App fire
 app.listen(port, () => {
