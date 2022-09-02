@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 module.exports = mongoose.model(
-  "Product",
+  "Products",
   new mongoose.Schema(
     {
       title: String,
