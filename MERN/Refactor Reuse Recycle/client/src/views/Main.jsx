@@ -37,6 +37,7 @@ const Main = (props) => {
   return (
     <>
       <Form init={init} onSubmit={addProduct} />
+      <br />
       <List list={products} setList={setProducts} />
     </>
   );

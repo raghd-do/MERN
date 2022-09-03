@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import Stack from "@mui/material/Stack";
 import DeleteBtn from "./DeleteBtn";
+import Button from "@mui/material/Button";
 
 const List = (props) => {
   const { list, setList } = props;
@@ -11,24 +13,25 @@ const List = (props) => {
   };
 
   return (
-    <div className="text-center mt-5">
+    <Stack>
       <h1>All Products:</h1>
       <br />
       {list.map((item) => (
-        <div key={item._id} className="row mb-3">
-          <Link to={`/${item._id}`} className="h6 col">
-            {item.title}
-          </Link>
+        <Stack key={item._id} direction="row" spacing={2}>
           <Link
-            to={`/${item._id}/edit`}
-            className="col-auto mx-2 btn btn-primary"
+            to={`/${item._id}`}
+            className=" col"
+            style={{ textDecoration: "none" }}
           >
-            Edit
+            <Button>{item.title}</Button>
+          </Link>
+          <Link to={`/${item._id}/edit`} style={{ textDecoration: "none" }}>
+            <Button variant="contained">Edit</Button>
           </Link>
           <DeleteBtn id={item._id} onDelete={successCallback} />
-        </div>
+        </Stack>
       ))}
-    </div>
+    </Stack>
   );
 };
 

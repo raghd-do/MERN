@@ -1,6 +1,9 @@
 import React from "react";
 import axios from "axios";
 
+import Button from "@mui/material/Button";
+import DeleteIcon from "@mui/icons-material/Delete";
+
 const DeleteBtn = (props) => {
   const { id, onDelete } = props;
 
@@ -14,12 +17,15 @@ const DeleteBtn = (props) => {
   };
 
   return (
-    <button
+    <Button
+      variant="contained"
+      color="error"
+      startIcon={<DeleteIcon />}
       onClick={(e) => hundleDelete(id)}
       className="col-auto mx-2 btn btn-outline-danger"
     >
       Delete
-    </button>
+    </Button>
   );
 };
 
